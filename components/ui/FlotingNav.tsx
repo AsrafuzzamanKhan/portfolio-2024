@@ -8,10 +8,9 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { navItems } from "@/data/index";
 
 export const FloatingNav = ({
-  
+  navItems,
   className,
 }: {
   navItems: {
@@ -61,8 +60,7 @@ export const FloatingNav = ({
           className
         )}
       >
-        {
-          navItems?.map((navItem: any, idx: number) => (
+        {navItems?.map((navItem: any, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
@@ -73,8 +71,7 @@ export const FloatingNav = ({
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className=" text-sm">{navItem.name}</span>
           </Link>
-          ))
-        }
+        ))}
         <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Login</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
